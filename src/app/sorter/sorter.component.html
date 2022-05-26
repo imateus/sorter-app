@@ -1,1 +1,50 @@
-<p>sorter works!</p>
+<ng-template mat-tab-label>
+    <mat-icon class="example-tab-icon">casino</mat-icon>
+    &nbsp;Sorteador
+</ng-template>
+<br /><br /><br /><br /><br />
+<div class="container">
+    <button mat-fab color="primary" (click)="sortead()" class="{{sorted}}-header-image"
+        style="font-size: 60px; width: 220px; height: 220px"></button>
+</div><br /><br /><br /><br /><br />
+<div cdkDropListGroup style="text-align: center">
+    <h1 style="text-decoration: solid;">{{sorted}}</h1>
+    <div class="example-container">
+        <h2>Ausentes</h2>
+
+        <div cdkDropList [cdkDropListData]="todo" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of todo" cdkDrag>
+                <mat-card-header>
+                    <div mat-card-avatar class="{{item}}-header-image"></div>
+                    <mat-card-title>{{item}}</mat-card-title>
+                </mat-card-header>
+            </div>
+        </div>
+    </div>
+
+    <div class="example-container">
+        <h2>Presentes</h2>
+
+        <div cdkDropList [cdkDropListData]="done" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of done" cdkDrag>
+                <mat-card-header>
+                    <div mat-card-avatar class="{{item}}-header-image"></div>
+                    <mat-card-title>{{item}}</mat-card-title>
+                </mat-card-header>
+            </div>
+        </div>
+    </div>
+    <div class="example-container">
+        <h2>Sorteados</h2>
+
+        <div cdkDropList [cdkDropListData]="finish" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of finish" cdkDrag>
+                <mat-card-header>
+                    <div mat-card-avatar class="{{item}}-header-image"></div>
+                    <mat-card-title>{{item}}</mat-card-title>
+                </mat-card-header>
+            </div>
+        </div>
+    </div>
+</div>
+<mat-card class="example-card" style="display:none"></mat-card>

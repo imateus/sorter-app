@@ -13,6 +13,7 @@ import{ MatCardModule } from '@angular/material/card';
 import{ MatDialogModule } from '@angular/material/dialog';
 import{ MatPaginatorModule } from '@angular/material/paginator';
 import{ MatSnackBarModule } from '@angular/material/snack-bar';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +42,7 @@ import { SorterService } from './sorter.service';
     MatDialogModule,
     MatPaginatorModule,
     MatSnackBarModule,
+    DragDropModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule

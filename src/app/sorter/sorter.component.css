@@ -1,0 +1,238 @@
+.example-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .example-list {
+    border: solid 1px #ccc;
+    min-height: 60px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+  }
+  
+  .example-box {
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-box:last-child {
+    border: none;
+  }
+  
+  .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .drag-box {
+    width: 200px;
+    height: 200px;
+    border: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: move;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+  
+  .drag-box:active {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    justify-content: center;
+  }
+  @import url(https://fonts.googleapis.com/css?family=Montserrat:400);
+  body {
+    background-color: #777;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAU0lEQVQIHQXBwRGDIBAAwO2/AMcCDHAcPjIRxjJ8Je1kl1uqUgphsWu6w0sIG6npLpcUBql4e/wsVRKabrkNTacIYbMrwsF06rqUhsnXVKVT+Hj+Ue4rPSONk4kAAAAASUVORK5CYII=);
+    padding-top: 80px;
+    text-align: center;
+  }
+  
+  .flipper-container {
+    text-align: center;
+    margin-top: 40px;
+    -moz-perspective: 1000;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+  }
+  
+  .flipper {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    font-family: 'Montserrat', arial, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    width: 11em;
+    height: 4.5em;
+  
+    -moz-transition: all 0.6s cubic-bezier(0.37, 0.74, 0.15, 1.65);
+    -o-transition: all 0.6s cubic-bezier(0.37, 0.74, 0.15, 1.65);
+    -webkit-transition: all 0.6s cubic-bezier(0.37, 0.74, 0.15, 1.65);
+    transition: all 0.6s cubic-bezier(0.37, 0.74, 0.15, 1.65);
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  .flipper:target {
+    -moz-transform: rotateX(90deg);
+    -webkit-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+  }
+  
+  .front-face,
+  .back-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    letter-spacing: 2px;
+    line-height: 4.5em;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .front-face:before,
+  .back-face:before {
+    content: attr(data-icon);
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 70px;
+    border-radius: 0 2px 2px 0;
+  }
+  
+  .front-face {
+    background-color: #fc2161;
+    color: #fff;
+    -moz-transform: rotateX(0deg) translateZ(2.25em);
+    -ms-transform: rotateX(0deg) translateZ(2.25em);
+    -webkit-transform: rotateX(0deg) translateZ(2.25em);
+    transform: rotateX(0deg) translateZ(2.25em);
+  }
+  
+  .back-face {
+    background-color: #77bd42;
+    color: #fff;
+    -moz-transform: rotateX(-90deg) translateZ(2.25em);
+    -ms-transform: rotateX(-90deg) translateZ(2.25em);
+    -webkit-transform: rotateX(-90deg) translateZ(2.25em);
+    transform: rotateX(-90deg) translateZ(2.25em);
+  }
+  
+  .example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  .Bruno-header-image {
+    background-image: url('https://i.ibb.co/zVdnbS3/Bruno.jpg');
+    background-size: cover;
+  }
+  .Léo-header-image {
+    background-image: url('https://i.ibb.co/vY40mJn/Leo.jpg');
+    background-size: cover;
+  }
+  .Camori-header-image {
+    background-image: url('https://i.ibb.co/n7nDc48/Camori.jpg');
+    background-size: cover;
+  }
+  .Damatta-header-image {
+    background-image: url('https://i.ibb.co/xht4Pmz/Damatta.jpg');
+    background-size: cover;
+  }
+  .Maguila-header-image {
+    background-image: url('https://i.ibb.co/1GDgRJD/Whats-App-Video-2022-04-30-at-17-52-24.gif');
+    background-size: cover;
+  }
+  .Rômulo-header-image {
+    background-image: url('https://i.ibb.co/SRVhMzN/R-mulo.jpg');
+    background-size: cover;
+  }
+  
+  .Fred-header-image {
+    background-image: url('https://c.tenor.com/TunZr5pnzT8AAAAM/freddie-mercury-queen.gif');
+    background-size: cover;
+  }
+  
+  .Mateus-header-image {
+    background-image: url('http://pa1.narvii.com/6882/da5e2880c784872e65facdd5aebac65f782398eer1-240-184_00.gif');
+    background-size: cover;
+  }
+  .Pupilo-header-image {
+    background-image: url('https://i.pinimg.com/originals/1b/33/8b/1b338b106d0e289ba4b3739d31fe9d3f.jpg');
+    background-size: cover;
+  }
+  .Chicão-header-image {
+    background-image: url('https://pbs.twimg.com/media/D-ZaEXoWkAAPC0o?format=jpg&name=large');
+    background-size: cover;
+  }
+  .Rodrigo-header-image {
+    background-image: url('https://c.tenor.com/ykyFsfEJflEAAAAC/ace-ventura-pet-detective.gif');
+    background-size: cover;
+  }
+  
+  .Ernesto-header-image {
+    background-image: url('https://www.promoview.com.br/uploads/2018/06/images/22.06/panco.jpg');
+    background-size: cover;
+  }
+  .Andressa-header-image {
+    background-image: url('https://i.ibb.co/3hytYyy/Andressa.gif');
+    background-size: cover;
+  }
+  .Rogélio-header-image {
+    background-image: url('https://i.ibb.co/z5ttjpt/Rogelio.png');
+    background-size: cover;
+  }
+  
