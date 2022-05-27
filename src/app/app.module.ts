@@ -22,6 +22,9 @@ import { PersonComponent } from './person/person.component';
 import { PersonService } from './person.service';
 import { SorterComponent } from './sorter/sorter.component';
 import { SorterService } from './sorter.service';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatListModule} from  '@angular/material/list';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import { SorterService } from './sorter.service';
     MatDialogModule,
     MatPaginatorModule,
     MatSnackBarModule,
+    MatSidenavModule,
+    MatListModule,
     DragDropModule,
     HttpClientModule,
     ReactiveFormsModule,

@@ -27,7 +27,7 @@ export class PersonService {
     return this.http.get<any>(`${this.url}?${params.toString()}`);
   }
 
-  favorite(person: Person) : Observable<any> {
+  active(person: Person) : Observable<any> {
     return this.http.patch( `${this.url}/${person.id}/active`, null)
   }
 

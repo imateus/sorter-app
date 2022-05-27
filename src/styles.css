@@ -2,3 +2,17 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-tab-body-wrapper{
+    width: 90%!important;
+}
+.full-width{
+    width: 100%;
+}
+.align-items-center{
+    align-items: center;
+    text-align: center;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+    text-align: center!important;   
+}

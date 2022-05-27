@@ -1,1 +1,59 @@
-<p>person works!</p>
+<div class="mat-elevation-z8">
+    <br/>
+    <p>
+        <mat-toolbar>
+          <span>Lista de Pessoas</span>
+        </mat-toolbar>
+      </p>   
+    <br/>    
+    <table mat-table [dataSource]="persons" class="full-width">
+        <ng-container matColumnDef="picture">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let person">
+                <div *ngIf="person.picture">
+                    <img width="50" 
+                         height="50" 
+                         src="data:image/jpg;base64,{{ person.picture }}"                         
+                         >
+                </div>
+                <div *ngIf="!person.picture">
+                    <input type="file" name="picture" (change)="uploadPicture($event, person)"/>
+                </div>                        
+            </td>
+        </ng-container>                
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Identificador</th>
+            <td mat-cell *matCellDef="let person">{{ person.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Nome</th>
+            <td mat-cell *matCellDef="let person">{{ person.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>E-mail</th>
+            <td mat-cell *matCellDef="let person">{{ person.email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef>Ativo?</th>
+            <td mat-cell *matCellDef="let person">
+                <a href="#" (click)="active(person)">
+                    <mat-icon>
+                        {{ person.active ? 'check_box' : 'check_box_outline_blank'}}
+                    </mat-icon>    
+                </a>                    
+            </td>
+        </ng-container>            
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+    </table>
+    <mat-paginator [length]="totalElementos"
+                   [pageSize]="size"
+                   [pageSizeOptions]="pageSizeOptions"
+                   showFirstLastButtons
+                   (page)="pagination($event)">     
+    </mat-paginator>
+</div>
